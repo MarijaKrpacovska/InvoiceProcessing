@@ -539,18 +539,18 @@
       ]
     },
     {
-      "DocumentTypeId": "Document2.Invoice.InvoiceGreen",
-      "Group": "Document2",
+      "DocumentTypeId": "Document.Invoice.InvoiceGreen",
+      "Group": "Document",
       "Category": "Invoice",
       "Name": "InvoiceGreen",
       "OptionalUniqueIdentifier": null,
       "TypeField": {
-        "FieldId": "Document2.Invoice.InvoiceGreen.DocumentType",
+        "FieldId": "Document.Invoice.InvoiceGreen.DocumentType",
         "FieldName": "Document Type"
       },
       "Fields": [
         {
-          "FieldId": "Document2.Invoice.InvoiceGreen.invoiceNumber",
+          "FieldId": "Document.Invoice.InvoiceGreen.invoiceNumber",
           "FieldName": "invoiceNumber",
           "IsMultiValue": false,
           "Type": "Text",
@@ -565,10 +565,10 @@
           ]
         },
         {
-          "FieldId": "Document2.Invoice.InvoiceGreen.receiver",
-          "FieldName": "receiver",
+          "FieldId": "Document.Invoice.InvoiceGreen.InvoiceDate",
+          "FieldName": "InvoiceDate",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": "Date",
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
@@ -580,148 +580,12 @@
           ]
         },
         {
-          "FieldId": "Document2.Invoice.InvoiceGreen.items",
-          "FieldName": "items",
+          "FieldId": "Document.Invoice.InvoiceGreen.receiver",
+          "FieldName": "receiver",
           "IsMultiValue": false,
-          "Type": "Table",
+          "Type": "Text",
           "DeriveFieldsFormat": "",
-          "Components": [
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.description",
-              "FieldName": "description",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.em",
-              "FieldName": "em",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.quantity",
-              "FieldName": "quantity",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.singularPrice",
-              "FieldName": "singularPrice",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.discount",
-              "FieldName": "discount",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.priceWithDiscount",
-              "FieldName": "priceWithDiscount",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.tax",
-              "FieldName": "tax",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.priceWithTaxes",
-              "FieldName": "priceWithTaxes",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceGreen.items.valueWithTaxes",
-              "FieldName": "valueWithTaxes",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            }
-          ],
+          "Components": [],
           "SetValues": [],
           "Metadata": [
             {
@@ -733,21 +597,21 @@
       ]
     },
     {
-      "DocumentTypeId": "Document2.Invoice.InvoiceBlack",
-      "Group": "Document2",
+      "DocumentTypeId": "Document.Invoice.InvoiceBlack",
+      "Group": "Document",
       "Category": "Invoice",
       "Name": "InvoiceBlack",
       "OptionalUniqueIdentifier": null,
       "TypeField": {
-        "FieldId": "Document2.Invoice.InvoiceBlack.DocumentType",
+        "FieldId": "Document.Invoice.InvoiceBlack.DocumentType",
         "FieldName": "Document Type"
       },
       "Fields": [
         {
-          "FieldId": "Document2.Invoice.InvoiceBlack.invoiceNumber",
-          "FieldName": "invoiceNumber",
+          "FieldId": "Document.Invoice.InvoiceBlack.InvoiceNumber",
+          "FieldName": "InvoiceNumber",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": "Number",
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
@@ -759,163 +623,27 @@
           ]
         },
         {
-          "FieldId": "Document2.Invoice.InvoiceBlack.receiver",
+          "FieldId": "Document.Invoice.InvoiceBlack.invoiceDate",
+          "FieldName": "invoiceDate",
+          "IsMultiValue": false,
+          "Type": "Date",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "RequiresReference",
+              "Value": "true"
+            }
+          ]
+        },
+        {
+          "FieldId": "Document.Invoice.InvoiceBlack.receiver",
           "FieldName": "receiver",
           "IsMultiValue": false,
           "Type": "Text",
           "DeriveFieldsFormat": "",
           "Components": [],
-          "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "RequiresReference",
-              "Value": "true"
-            }
-          ]
-        },
-        {
-          "FieldId": "Document2.Invoice.InvoiceBlack.items",
-          "FieldName": "items",
-          "IsMultiValue": false,
-          "Type": "Table",
-          "DeriveFieldsFormat": "",
-          "Components": [
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.code",
-              "FieldName": "code",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.article",
-              "FieldName": "article",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.quantity",
-              "FieldName": "quantity",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.em",
-              "FieldName": "em",
-              "IsMultiValue": false,
-              "Type": "Text",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.ddv",
-              "FieldName": "ddv",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.priceWithoutDDV",
-              "FieldName": "priceWithoutDDV",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.priceWithDDV",
-              "FieldName": "priceWithDDV",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.valueWithoutDDV",
-              "FieldName": "valueWithoutDDV",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            },
-            {
-              "FieldId": "Document2.Invoice.InvoiceBlack.items.valueWithDDV",
-              "FieldName": "valueWithDDV",
-              "IsMultiValue": false,
-              "Type": "Number",
-              "DeriveFieldsFormat": "",
-              "Components": [],
-              "SetValues": [],
-              "Metadata": [
-                {
-                  "Key": "RequiresReference",
-                  "Value": "true"
-                }
-              ]
-            }
-          ],
           "SetValues": [],
           "Metadata": [
             {
@@ -930,12 +658,6 @@
   "Groups": [
     {
       "Name": "Document",
-      "Categories": [
-        "Invoice"
-      ]
-    },
-    {
-      "Name": "Document2",
       "Categories": [
         "Invoice"
       ]
