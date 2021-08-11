@@ -189,7 +189,7 @@
         <OutArgument x:TypeArguments="x:Double">[out_confidence]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:Double">1</InArgument>
+        <InArgument x:TypeArguments="x:Double">[finalTotalConfidence]</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>
