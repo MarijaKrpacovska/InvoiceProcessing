@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>754,1832</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848,1832</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
@@ -100,7 +100,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -263,7 +262,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:InvokeWorkflowFile>
                               <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID5">
+                                <FlowStep x:Name="__ReferenceID4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">200,224.5</av:Point>
@@ -318,15 +317,15 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:InvokeWorkflowFile>
                                       <FlowStep.Next>
-                                        <FlowStep x:Name="__ReferenceID3">
+                                        <FlowStep x:Name="__ReferenceID5">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <av:Point x:Key="ShapeLocation">200,414.5</av:Point>
                                               <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                              <av:PointCollection x:Key="ConnectorLocation">300,465.5 300,495.5 290,495.5 290,496.5</av:PointCollection>
+                                              <av:PointCollection x:Key="ConnectorLocation">300,465.5 300,486.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_139" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_144" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">[confidence]</OutArgument>
                                               <OutArgument x:TypeArguments="x:Double" x:Key="out_minConfidence">[minConfidence]</OutArgument>
@@ -340,14 +339,14 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                           </ui:InvokeWorkflowFile>
                                           <FlowStep.Next>
-                                            <FlowDecision x:Name="__ReferenceID4" Condition="[confidence &lt; 0.9]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28">
+                                            <FlowDecision x:Name="__ReferenceID3" Condition="[confidence &lt; 0.9]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  <av:Point x:Key="ShapeLocation">250.5,496.5</av:Point>
+                                                  <av:Point x:Key="ShapeLocation">260.5,486.5</av:Point>
                                                   <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                                  <av:PointCollection x:Key="TrueConnector">250.5,540 150,540 150,637</av:PointCollection>
-                                                  <av:PointCollection x:Key="FalseConnector">329.5,540 460,540 460,634.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="TrueConnector">260.5,530 150,530 150,637</av:PointCollection>
+                                                  <av:PointCollection x:Key="FalseConnector">339.5,530 460,530 460,634.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <FlowDecision.True>
@@ -499,8 +498,8 @@
                             <x:Reference>__ReferenceID1</x:Reference>
                             <x:Reference>__ReferenceID2</x:Reference>
                             <x:Reference>__ReferenceID3</x:Reference>
-                            <x:Reference>__ReferenceID4</x:Reference>
                             <x:Reference>__ReferenceID0</x:Reference>
+                            <x:Reference>__ReferenceID4</x:Reference>
                             <x:Reference>__ReferenceID5</x:Reference>
                           </Flowchart>
                         </Sequence>
@@ -683,15 +682,9 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_123" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">
-                                                  <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="confidence" />
-                                                </OutArgument>
-                                                <OutArgument x:TypeArguments="x:Double" x:Key="out_minConfidence">
-                                                  <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="minConfidence" />
-                                                </OutArgument>
-                                                <InArgument x:TypeArguments="sd:DataSet" x:Key="in_ExportRes">
-                                                  <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
-                                                </InArgument>
+                                                <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">[confidence]</OutArgument>
+                                                <OutArgument x:TypeArguments="x:Double" x:Key="out_minConfidence">[minConfidence]</OutArgument>
+                                                <InArgument x:TypeArguments="sd:DataSet" x:Key="in_ExportRes">[exportData]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
