@@ -593,6 +593,82 @@
               "Value": "true"
             }
           ]
+        },
+        {
+          "FieldId": "Document.Invoice.InvoiceGreen.items",
+          "FieldName": "items",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "Document.Invoice.InvoiceGreen.items.description",
+              "FieldName": "description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            },
+            {
+              "FieldId": "Document.Invoice.InvoiceGreen.items.rate",
+              "FieldName": "rate",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            },
+            {
+              "FieldId": "Document.Invoice.InvoiceGreen.items.quantity",
+              "FieldName": "quantity",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            },
+            {
+              "FieldId": "Document.Invoice.InvoiceGreen.items.lineAmount",
+              "FieldName": "lineAmount",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            }
+          ],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "RequiresReference",
+              "Value": "true"
+            }
+          ]
         }
       ]
     },
@@ -644,6 +720,82 @@
           "Type": "Text",
           "DeriveFieldsFormat": "",
           "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "RequiresReference",
+              "Value": "true"
+            }
+          ]
+        },
+        {
+          "FieldId": "Document.Invoice.InvoiceBlack.total",
+          "FieldName": "total",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "RequiresReference",
+              "Value": "true"
+            }
+          ]
+        },
+        {
+          "FieldId": "Document.Invoice.InvoiceBlack.items",
+          "FieldName": "items",
+          "IsMultiValue": false,
+          "Type": "Table",
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "Document.Invoice.InvoiceBlack.items.description",
+              "FieldName": "description",
+              "IsMultiValue": false,
+              "Type": "Text",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            },
+            {
+              "FieldId": "Document.Invoice.InvoiceBlack.items.quantity",
+              "FieldName": "quantity",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            },
+            {
+              "FieldId": "Document.Invoice.InvoiceBlack.items.lineAmount",
+              "FieldName": "lineAmount",
+              "IsMultiValue": false,
+              "Type": "Number",
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": [],
+              "Metadata": [
+                {
+                  "Key": "RequiresReference",
+                  "Value": "true"
+                }
+              ]
+            }
+          ],
           "SetValues": [],
           "Metadata": [
             {
