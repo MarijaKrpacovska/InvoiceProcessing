@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1063,1832</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>838,1832</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
@@ -58,7 +58,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="41">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -100,6 +100,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -217,6 +218,7 @@
                             <Variable x:TypeArguments="sd:DataTable" Name="confidenceDt" />
                             <Variable x:TypeArguments="x:Double" Name="confidence" />
                             <Variable x:TypeArguments="x:Boolean" Name="sucessfulMove" />
+                            <Variable x:TypeArguments="x:Double" Name="minConfidence" />
                           </Flowchart.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -318,10 +320,17 @@
                                             <av:PointCollection x:Key="ConnectorLocation">300,465.5 300,495.5 290,495.5 290,496.5</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_109" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_109" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_confidenceDT">[confidenceDt]</InArgument>
-                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">[confidence]</OutArgument>
+                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_confidenceDT">
+                                              <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="confidenceDt" />
+                                            </InArgument>
+                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="confidence" />
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_minConfidence">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="minConfidence" />
+                                            </OutArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -463,7 +472,7 @@
                                                         <av:Size x:Key="ShapeSize">200,51</av:Size>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add to sucess folder" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_105" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\MoveToFolder.xaml">
+                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add to sucess folder" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_105" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\MoveToFolder.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
                                                         <InArgument x:TypeArguments="x:Boolean" x:Key="in_sucess">True</InArgument>
                                                         <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">[in_TargetFile]</InArgument>
