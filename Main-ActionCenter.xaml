@@ -327,10 +327,10 @@
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <av:Point x:Key="ShapeLocation">200,414.5</av:Point>
                                               <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                              <av:PointCollection x:Key="ConnectorLocation">300,465.5 300,486.5</av:PointCollection>
+                                              <av:PointCollection x:Key="ConnectorLocation">300,465.5 300,495.5 250,495.5 250,506.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_144" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_144" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="sd:DataSet" x:Key="in_ExportRes">
                                                 <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
@@ -363,10 +363,10 @@
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  <av:Point x:Key="ShapeLocation">260.5,486.5</av:Point>
+                                                  <av:Point x:Key="ShapeLocation">210.5,506.5</av:Point>
                                                   <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                                  <av:PointCollection x:Key="TrueConnector">260.5,530 150,530 150,637</av:PointCollection>
-                                                  <av:PointCollection x:Key="FalseConnector">339.5,530 460,530 460,634.5</av:PointCollection>
+                                                  <av:PointCollection x:Key="TrueConnector">210.5,550 150,550 150,637</av:PointCollection>
+                                                  <av:PointCollection x:Key="FalseConnector">289.5,550 460,550 460,634.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <FlowDecision.True>
@@ -525,7 +525,7 @@
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <av:Point x:Key="ShapeLocation">470.5,406.5</av:Point>
+                                  <av:Point x:Key="ShapeLocation">480.5,486.5</av:Point>
                                   <av:Size x:Key="ShapeSize">79,87</av:Size>
                                   <av:PointCollection x:Key="TrueConnector">270.5,540 160,540 160,647</av:PointCollection>
                                   <av:PointCollection x:Key="FalseConnector">349.5,540 470,540 470,644.5</av:PointCollection>
