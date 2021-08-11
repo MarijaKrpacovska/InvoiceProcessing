@@ -72,6 +72,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
@@ -116,14 +117,14 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[column.ColumnName.Contains(&quot;Confidence&quot;)]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[column.ColumnName.Contains(&quot;Confidence&quot;) and Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Double">[totalConfidence]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:Double">[totalConfidence+Double.Parse(CurrentRow(column).ToString)]</InArgument>
+                            <InArgument x:TypeArguments="x:Double">[totalConfidence+Convert.ToDouble(CurrentRow(column).ToString)]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </If.Then>
