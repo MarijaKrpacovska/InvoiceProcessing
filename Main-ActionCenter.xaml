@@ -347,6 +347,9 @@
                                               <OutArgument x:TypeArguments="x:Boolean" x:Key="out_nonConfFieldNullExists">
                                                 <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="nonConfField" />
                                               </OutArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_currentFile">
+                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
+                                              </InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
