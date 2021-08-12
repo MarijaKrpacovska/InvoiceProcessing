@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_UseQueue="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p3="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiaam="clr-namespace:UiPath.IntelligentOCR.Activities.Actions.Model;assembly=UiPath.IntelligentOCR.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_UseQueue="True" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p3="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiaam="clr-namespace:UiPath.IntelligentOCR.Activities.Actions.Model;assembly=UiPath.IntelligentOCR.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_TargetFile" Type="InArgument(x:String)" />
     <x:Property Name="in_UseQueue" Type="InArgument(x:Boolean)" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>754,1830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1011,1830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
@@ -219,6 +219,10 @@
                             <Variable x:TypeArguments="x:Double" Name="confidence" />
                             <Variable x:TypeArguments="x:Boolean" Name="sucessfulMove" />
                             <Variable x:TypeArguments="x:Double" Name="minConfidence" />
+                            <Variable x:TypeArguments="x:Boolean" Name="totalConfTooSmall" />
+                            <Variable x:TypeArguments="x:Boolean" Name="fieldConfTooSmall" />
+                            <Variable x:TypeArguments="x:Boolean" Name="confNull" />
+                            <Variable x:TypeArguments="x:Boolean" Name="nonConfNull" />
                           </Flowchart.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -322,14 +326,23 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Confidence" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_109" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\calculateConfidence.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence">
-                                              <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="confidence" />
-                                            </OutArgument>
-                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_minConfidence">
-                                              <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="minConfidence" />
-                                            </OutArgument>
                                             <InArgument x:TypeArguments="sd:DataSet" x:Key="in_ExportRes">
                                               <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
+                                            </InArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_totalConfTooSmall">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="totalConfTooSmall" />
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_fieldConfTooSmall">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="fieldConfTooSmall" />
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_confFieldNullExists">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="confNull" />
+                                            </OutArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_nonConfFieldNullExists">
+                                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="nonConfNull" />
+                                            </OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_currentFile">
+                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
                                             </InArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                           <sap:WorkflowViewStateService.ViewState>
