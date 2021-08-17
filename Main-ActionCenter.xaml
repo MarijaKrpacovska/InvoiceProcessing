@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>940,1826</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>836,1826</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
@@ -303,13 +303,27 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_108" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\70_Export.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[extractionResults]</InArgument>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
-                                        <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxAttempts">[maxAttempts]</InArgument>
-                                        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[retryInterval]</InArgument>
-                                        <OutArgument x:TypeArguments="sd:DataSet" x:Key="out_exportDataSet">[exportData]</OutArgument>
-                                        <OutArgument x:TypeArguments="x:String" x:Key="out_outputPath">[outputPath]</OutArgument>
-                                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_confidenceDT">[confidenceDt]</OutArgument>
+                                        <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">
+                                          <mva:VisualBasicValue x:TypeArguments="p2:ExtractionResult" ExpressionText="extractionResults" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">
+                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="config" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxAttempts">
+                                          <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="maxAttempts" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">
+                                          <mva:VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="retryInterval" />
+                                        </InArgument>
+                                        <OutArgument x:TypeArguments="sd:DataSet" x:Key="out_exportDataSet">
+                                          <mva:VisualBasicReference x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
+                                        </OutArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="out_outputPath">
+                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="outputPath" />
+                                        </OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_TargetDocument">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -372,7 +386,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <TryCatch.Try>
-                                                    <Sequence sap2010:Annotation.AnnotationText="Extraction Validation &amp; Extractor training" DisplayName="Validate Extractors" sap:VirtualizedContainerService.HintSize="520,2084" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                                    <Sequence sap2010:Annotation.AnnotationText="Extraction Validation &amp; Extractor training" DisplayName="Validate Extractors" sap:VirtualizedContainerService.HintSize="520,1762" sap2010:WorkflowViewState.IdRef="Sequence_66">
                                                       <Sequence.Variables>
                                                         <Variable x:TypeArguments="uiaam:DocumentValidationActionData" Name="validationAction" />
                                                         <Variable x:TypeArguments="x:String" Name="newFile" />
@@ -383,7 +397,7 @@
                                                           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:LogMessage DisplayName="Log Message -  Create HitL Validation Action" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_94" Message="[config(&quot;LogMessage_CreateValidationAction&quot;) + &quot; &quot; + Environment.NewLine + config(&quot;logKey&quot;)]" />
+                                                      <ui:LogMessage DisplayName="Log Message -  Create HitL Validation Action" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_94" Level="Info" Message="[config(&quot;LogMessage_CreateValidationAction&quot;) + &quot; &quot; + Path.GetFileName(in_TargetFile)+ Environment.NewLine + config(&quot;logKey&quot;)]" />
                                                       <Assign sap:VirtualizedContainerService.HintSize="478,60" sap2010:WorkflowViewState.IdRef="Assign_31">
                                                         <Assign.To>
                                                           <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
@@ -409,7 +423,7 @@
                                                           <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[retryInterval]</InArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
-                                                      <ui:LogMessage DisplayName="Log Message - Wait On HitL Validation Action" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_95" Message="[config(&quot;LogMessage_WaitOnValidationAction&quot;) + Environment.NewLine + config(&quot;logKey&quot;)]" />
+                                                      <ui:LogMessage DisplayName="Log Message - Wait On HitL Validation Action" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_95" Level="Info" Message="[config(&quot;LogMessage_WaitOnValidationAction&quot;) + Environment.NewLine + config(&quot;logKey&quot;)]" />
                                                       <p3:WaitForDocumentValidationActionAndResume ActionOutput="{x:Null}" StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" ActionInput="[validationAction]" sap2010:Annotation.AnnotationText="Take note that, by default, the activity does NOT download the document from the storage bucket. &#xA;&#xA;If the file is required after the job resumes, make sure to fill in Download Directory Path AND Document Path arguments (see how the Wait For Document Classification Action And Resume - Main activity is configured).&#xA;&#xA;Note that, when going into production, you might want to disable the &quot;Remove Data from Storage&quot;, for auditing reasons. Should this be the case, a separate cleanup of storage bucket data should be considered." AutomaticExtractionResults="[extractionResults]" DisplayName="Wait For Document Data Validation Action And Resume" DocumentObjectModel="[dom]" DocumentPath="[newFile]" DocumentText="[docText]" DownloadFolderPath="[config(&quot;TemporaryLocalFolder&quot;)]" sap:VirtualizedContainerService.HintSize="478,520" sap2010:WorkflowViewState.IdRef="WaitForDocumentValidationActionAndResume_19" RemoveDataFromStorage="True" Taxonomy="[docTaxonomy]" ValidatedExtractionResults="[validatedExtractionResults]">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -420,34 +434,6 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                       </p3:WaitForDocumentValidationActionAndResume>
                                                       <ui:LogMessage DisplayName="Log Message - DataValidation Resume" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_96" Message="[config(&quot;LogMessage_ResumeAfterDataValidation&quot;) + &quot; &quot; + validatedExtractionResults.DocumentId + Environment.NewLine + config(&quot;logKey&quot;)]" />
-                                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478,282" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                                                        <ui:CommentOut.Body>
-                                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_69">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="TrainExtractors" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_107" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\60_TrainExtractors.xaml">
-                                                              <ui:InvokeWorkflowFile.Arguments>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="in_TargetDocument">[splitFile]</InArgument>
-                                                                <InArgument x:TypeArguments="p:DocumentTaxonomy" x:Key="in_DocTaxonomy">[docTaxonomy]</InArgument>
-                                                                <InArgument x:TypeArguments="p1:Document" x:Key="in_DOM">[splitDom]</InArgument>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="in_DocText">[splitText]</InArgument>
-                                                                <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ValidatedExtractionResults">[validatedExtractionResults]</InArgument>
-                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
-                                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxAttempts">[maxAttempts]</InArgument>
-                                                                <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[retryInterval]</InArgument>
-                                                              </ui:InvokeWorkflowFile.Arguments>
-                                                              <sap:WorkflowViewStateService.ViewState>
-                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                </scg:Dictionary>
-                                                              </sap:WorkflowViewStateService.ViewState>
-                                                            </ui:InvokeWorkflowFile>
-                                                          </Sequence>
-                                                        </ui:CommentOut.Body>
-                                                      </ui:CommentOut>
                                                       <Assign DisplayName="Assign Extraction Result" sap:VirtualizedContainerService.HintSize="478,60" sap2010:WorkflowViewState.IdRef="Assign_28">
                                                         <Assign.To>
                                                           <OutArgument x:TypeArguments="p2:ExtractionResult">[extractionResults]</OutArgument>
@@ -459,7 +445,7 @@
                                                     </Sequence>
                                                   </TryCatch.Try>
                                                   <TryCatch.Catches>
-                                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="524,129" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="524,352" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -470,14 +456,22 @@
                                                         <ActivityAction.Argument>
                                                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                                         </ActivityAction.Argument>
-                                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_32">
-                                                          <Assign.To>
-                                                            <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
-                                                          </Assign.To>
-                                                          <Assign.Value>
-                                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                                                          </Assign.Value>
-                                                        </Assign>
+                                                        <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_100" Level="Error" Message="[&quot;Exception thrown while validation for file: &quot;+Path.GetFileName(in_TargetFile)]" />
+                                                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:Boolean">[success]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Sequence>
                                                       </ActivityAction>
                                                     </Catch>
                                                   </TryCatch.Catches>
@@ -582,12 +576,23 @@
                                                     <av:PointCollection x:Key="ConnectorLocation">540,685.5 540,764.5</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Make excel files from the final results and save them in the Data\Exports folder" DisplayName="Make excel files" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_110" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\75_writeExcel.xaml">
+                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Make excel files from the final results and save them in the Data\Exports folder" DisplayName="Make excel files" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_110" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\75_writeExcel.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">[exportData]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_outputPath">[outputPath]</InArgument>
-                                                    <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">[retryInterval]</InArgument>
-                                                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxAttempts">[maxAttempts]</InArgument>
+                                                    <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">
+                                                      <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_outputPath">
+                                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outputPath" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryInterval">
+                                                      <mva:VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="retryInterval" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxAttempts">
+                                                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="maxAttempts" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">
+                                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
+                                                    </InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
