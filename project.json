@@ -3,6 +3,7 @@
   "description": "New Document Understanding Process",
   "main": "Main-ActionCenter.xaml",
   "dependencies": {
+    "BalaReva.DataTable.Activities": "[3.0.1]",
     "UiPath.DocumentUnderstanding.ML.Activities": "[1.7.0]",
     "UiPath.Excel.Activities": "[2.10.4]",
     "UiPath.IntelligentOCR.Activities": "[4.13.2]",
