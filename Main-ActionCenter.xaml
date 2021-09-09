@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>754,1826</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>784,1826</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="90">
@@ -101,7 +101,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -366,7 +365,7 @@
                                                     <av:PointCollection x:Key="ConnectorLocation">240,685.5 240,746.5</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <TryCatch sap2010:Annotation.AnnotationText="Validate extracted results in Action Center" DisplayName="ValidationTryCatch" sap:VirtualizedContainerService.HintSize="558,2576" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                                <TryCatch sap2010:Annotation.AnnotationText="Validate extracted results in Action Center" DisplayName="ValidationTryCatch" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -404,18 +403,10 @@
                                                       </p3:CreateDocumentValidationAction>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="478,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_121" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\AssignTaskToUser.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_taskId">
-                                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="validationAction.Id.ToString" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                                                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="config" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_taskCatalog">
-                                                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile.Split(&quot;\&quot;c)(in_TargetFile.Split(&quot;\&quot;c).Length-2).ToString" />
-                                                          </InArgument>
-                                                          <OutArgument x:TypeArguments="scg:List(upat:TaskAssignmentResponse)" x:Key="out_failedTaskAssignments">
-                                                            <mva:VisualBasicReference x:TypeArguments="scg:List(upat:TaskAssignmentResponse)" ExpressionText="failedTaskAssignment" />
-                                                          </OutArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_taskId">[validationAction.Id.ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_taskCatalog">[in_TargetFile.Split("\"c)(in_TargetFile.Split("\"c).Length-2).ToString]</InArgument>
+                                                          <OutArgument x:TypeArguments="scg:List(upat:TaskAssignmentResponse)" x:Key="out_failedTaskAssignments">[failedTaskAssignment]</OutArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SetTransactionProgress - Extraction Validation" sap:VirtualizedContainerService.HintSize="478,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_106" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\SetTransactionProgress.xaml">
