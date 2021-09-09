@@ -1,0 +1,272 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="writeXML" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_exportDataSet" Type="InArgument(sd:DataSet)" />
+    <x:Property Name="in_targetFile" Type="InArgument(x:String)" />
+    <x:Property Name="in_outputPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1130.4,3720</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>writeXML_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="writeXML" sap:VirtualizedContainerService.HintSize="430.4,3655.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="filteredFormattedTable" />
+      <Variable x:TypeArguments="sx:XmlWriter" Name="writer" />
+      <Variable x:TypeArguments="sd:DataTable" Name="filteredItemsTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Writing xml file for Invoice: &quot;+Path.GetFileName(in_targetFile)]" />
+    <Assign sap:VirtualizedContainerService.HintSize="388.8,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sx:XmlWriter">[writer]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sx:XmlWriter">[XmlWriter.Create("C:\Users\kalaj\Documents\UiPath\InvoiceProcessing1\Data\ExportsXML\"+Path.GetFileName(in_targetFile)+".xml")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="WriteStartDocument">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Invoke method-MainInformation" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_19" MethodName="WriteStartElement">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">MainInformation</InArgument>
+    </InvokeMethod>
+    <ui:FilterDataTable DataTable="[in_exportDataSet.Tables(0)]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="388.8,162.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[filteredFormattedTable]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="8">
+          <InArgument x:TypeArguments="x:String">["InvoiceNumber - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["DateOfIssue - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["DueDate - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["AmountDue - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["ReceiverName - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["ReceiverAddress - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Items"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Items - Confidence"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[filteredFormattedTable]" DisplayName="For Each Row in FORMATTED" sap:VirtualizedContainerService.HintSize="388.8,574.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="355.2,453.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="313.6,360.8" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[filteredFormattedTable.Columns]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="sd:DataColumn">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataColumn" Name="Column" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="278.4,226.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="236.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="WriteElementString">
+                      <InvokeMethod.TargetObject>
+                        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+                      </InvokeMethod.TargetObject>
+                      <InArgument x:TypeArguments="x:String">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Column.ColumnName" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CurrentRow(Column.ColumnName).ToString" />
+                      </InArgument>
+                    </InvokeMethod>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_20" MethodName="WriteElementString">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">
+        <Literal x:TypeArguments="x:String">AcceptanceId</Literal>
+      </InArgument>
+      <InArgument x:TypeArguments="x:String">
+        <Literal x:TypeArguments="x:String" Value="" />
+      </InArgument>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Invoke method-Items" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_12" MethodName="WriteStartElement">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">
+        <Literal x:TypeArguments="x:String">Items</Literal>
+      </InArgument>
+    </InvokeMethod>
+    <ui:FilterDataTable DataTable="[in_exportDataSet.Tables(2)]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="388.8,162.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[filteredItemsTable]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:String">["Description - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Rate - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Qty - Confidence"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["LineTotal - Confidence"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[filteredItemsTable]" DisplayName="For Each Row in ITEMS" sap:VirtualizedContainerService.HintSize="388.8,921.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="355.2,800.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <InvokeMethod DisplayName="Invoke method-Item" sap:VirtualizedContainerService.HintSize="313.6,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_14" MethodName="WriteStartElement">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+              </InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String">Item</Literal>
+              </InArgument>
+            </InvokeMethod>
+            <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="313.6,360.8" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filteredItemsTable.Columns]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="sd:DataColumn">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataColumn" Name="Column" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="278.4,226.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="236.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_16" MethodName="WriteElementString">
+                      <InvokeMethod.TargetObject>
+                        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+                      </InvokeMethod.TargetObject>
+                      <InArgument x:TypeArguments="x:String">[Column.ColumnName]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow(Column.ColumnName).ToString]</InArgument>
+                    </InvokeMethod>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <InvokeMethod DisplayName="Invoke method-Item" sap:VirtualizedContainerService.HintSize="313.6,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_18" MethodName="WriteEndElement">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+              </InvokeMethod.TargetObject>
+            </InvokeMethod>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <InvokeMethod DisplayName="Invoke method-Items" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_21" MethodName="WriteEndElement">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Invoke method-MainInformation" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="WriteEndElement">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="WriteEndDocument">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="388.8,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Close">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sx:XmlWriter">[writer]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+  </Sequence>
+</Activity>
