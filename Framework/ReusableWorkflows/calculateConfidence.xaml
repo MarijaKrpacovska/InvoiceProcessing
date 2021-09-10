@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>836,3363</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>716,3792</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>calculateConfidence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -79,7 +79,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="calculateConfidence" sap:VirtualizedContainerService.HintSize="611,3298" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="calculateConfidence" sap:VirtualizedContainerService.HintSize="611,3727" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Double" Name="totalConfidence" />
       <Variable x:TypeArguments="x:Int32" Name="totalConfidenceNumber" />
@@ -180,7 +180,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
     </Sequence>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_ExportRes.Tables(1)]" DisplayName="Find total, min confidence and null values from FORMATED table " sap:VirtualizedContainerService.HintSize="569,489" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_ExportRes.Tables(0)]" DisplayName="Find total, min confidence and null values from FORMATED table " sap:VirtualizedContainerService.HintSize="569,489" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -192,7 +192,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,277" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_ExportRes.Tables(1).Columns]">
+            <ui:ForEach x:TypeArguments="sd:DataColumn" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="307,277" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_ExportRes.Tables(0).Columns]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="sd:DataColumn">
                   <ActivityAction.Argument>
@@ -204,12 +204,12 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Flowchart DisplayName="Calculate total, find min and find nulls" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+                    <Flowchart DisplayName="Calculate total, find min and find nulls" sap:VirtualizedContainerService.HintSize="956,636" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <av:Point x:Key="ShapeLocation">440,2.5</av:Point>
-                          <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+                          <av:Size x:Key="ShapeSize">60,75</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">470,77.5 470,116.5</av:PointCollection>
                           <x:Double x:Key="Width">921.5</x:Double>
                         </scg:Dictionary>
@@ -217,23 +217,23 @@
                       <Flowchart.StartNode>
                         <x:Reference>__ReferenceID7</x:Reference>
                       </Flowchart.StartNode>
-                      <FlowDecision x:Name="__ReferenceID7" Condition="[column.ColumnName.Contains(&quot;Confidence&quot;)]" DisplayName="Is conf field" sap:VirtualizedContainerService.HintSize="70.4,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                      <FlowDecision x:Name="__ReferenceID7" Condition="[column.ColumnName.Contains(&quot;Confidence&quot;)]" DisplayName="Is conf field" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <av:Point x:Key="ShapeLocation">435,116.5</av:Point>
-                            <av:Size x:Key="ShapeSize">70.4,87.2</av:Size>
+                            <av:Size x:Key="ShapeSize">70,87</av:Size>
                             <av:PointCollection x:Key="TrueConnector">435,160 180,160 180,206.5</av:PointCollection>
                             <av:PointCollection x:Key="FalseConnector">505,160 690,160 690,206.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <FlowDecision.True>
-                          <FlowDecision x:Name="__ReferenceID0" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Conf field is null" sap:VirtualizedContainerService.HintSize="91.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                          <FlowDecision x:Name="__ReferenceID0" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Conf field is null" sap:VirtualizedContainerService.HintSize="92,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <av:Point x:Key="ShapeLocation">134,206.5</av:Point>
-                                <av:Size x:Key="ShapeSize">91.2,87.2</av:Size>
+                                <av:Size x:Key="ShapeSize">92,87</av:Size>
                                 <av:PointCollection x:Key="TrueConnector">134,250 100,250 100,357</av:PointCollection>
                                 <av:PointCollection x:Key="FalseConnector">226,250 360,250 360,360</av:PointCollection>
                               </scg:Dictionary>
@@ -243,10 +243,10 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">0,357</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,68.8</av:Size>
+                                    <av:Size x:Key="ShapeSize">200,66</av:Size>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence sap:VirtualizedContainerService.HintSize="524.8,880.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:Double" Name="currConfidence" />
                                   </Sequence.Variables>
@@ -322,11 +322,11 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">229,360</av:Point>
-                                    <av:Size x:Key="ShapeSize">262.4,60</av:Size>
+                                    <av:Size x:Key="ShapeSize">262,60</av:Size>
                                     <av:PointCollection x:Key="ConnectorLocation">360.2,420 360.2,470</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[out_confFieldNullExists]</OutArgument>
                                   </Assign.To>
@@ -339,10 +339,10 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">260.2,470</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,22.4</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,22</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_5">
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -356,12 +356,12 @@
                           </FlowDecision>
                         </FlowDecision.True>
                         <FlowDecision.False>
-                          <FlowDecision x:Name="__ReferenceID1" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Non conf field is null" sap:VirtualizedContainerService.HintSize="115.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+                          <FlowDecision x:Name="__ReferenceID1" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Non conf field is null" sap:VirtualizedContainerService.HintSize="116,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <av:Point x:Key="ShapeLocation">632,206.5</av:Point>
-                                <av:Size x:Key="ShapeSize">115.2,87.2</av:Size>
+                                <av:Size x:Key="ShapeSize">116,87</av:Size>
                                 <av:PointCollection x:Key="FalseConnector">748,250 770,250 770,350</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -370,11 +370,11 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">639,350</av:Point>
-                                    <av:Size x:Key="ShapeSize">262.4,60</av:Size>
+                                    <av:Size x:Key="ShapeSize">262,60</av:Size>
                                     <av:PointCollection x:Key="ConnectorLocation">770.2,410 770.2,460</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[out_nonConfFieldNullExists]</OutArgument>
                                   </Assign.To>
@@ -387,10 +387,10 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">670.2,460</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,22.4</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,22</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_7">
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_7">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -466,7 +466,7 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <TryCatch sap2010:Annotation.AnnotationText="Catches error if Items table isnt cought by the Extractors." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="569,318" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Catches error if Items table isnt cought by the Extractors." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="569,747" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -502,7 +502,7 @@
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <av:Point x:Key="ShapeLocation">440,2.5</av:Point>
-                              <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+                              <av:Size x:Key="ShapeSize">60,75</av:Size>
                               <av:PointCollection x:Key="ConnectorLocation">470,77.5 470,116.5</av:PointCollection>
                               <x:Double x:Key="Width">921.5</x:Double>
                             </scg:Dictionary>
@@ -510,23 +510,23 @@
                           <Flowchart.StartNode>
                             <x:Reference>__ReferenceID15</x:Reference>
                           </Flowchart.StartNode>
-                          <FlowDecision x:Name="__ReferenceID15" Condition="[column.ColumnName.Contains(&quot;Confidence&quot;)]" DisplayName="Is conf field" sap:VirtualizedContainerService.HintSize="70.4,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                          <FlowDecision x:Name="__ReferenceID15" Condition="[column.ColumnName.Contains(&quot;Confidence&quot;)]" DisplayName="Is conf field" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <av:Point x:Key="ShapeLocation">435,116.5</av:Point>
-                                <av:Size x:Key="ShapeSize">70.4,87.2</av:Size>
+                                <av:Size x:Key="ShapeSize">70,87</av:Size>
                                 <av:PointCollection x:Key="TrueConnector">435,160 180,160 180,206.5</av:PointCollection>
                                 <av:PointCollection x:Key="FalseConnector">505,160 690,160 690,206.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <FlowDecision.True>
-                              <FlowDecision x:Name="__ReferenceID8" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Conf field is null" sap:VirtualizedContainerService.HintSize="91.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                              <FlowDecision x:Name="__ReferenceID8" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Conf field is null" sap:VirtualizedContainerService.HintSize="92,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <av:Point x:Key="ShapeLocation">134,206.5</av:Point>
-                                    <av:Size x:Key="ShapeSize">91.2,87.2</av:Size>
+                                    <av:Size x:Key="ShapeSize">92,87</av:Size>
                                     <av:PointCollection x:Key="TrueConnector">134,250 100,250 100,357</av:PointCollection>
                                     <av:PointCollection x:Key="FalseConnector">226,250 360,250 360,360</av:PointCollection>
                                   </scg:Dictionary>
@@ -536,10 +536,10 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">0,357</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,68.8</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,66</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="524.8,618.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:Double" Name="currConfidence" />
                                       </Sequence.Variables>
@@ -548,7 +548,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                      <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_32">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Double">[currConfidence]</OutArgument>
                                         </Assign.To>
@@ -556,20 +556,20 @@
                                           <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(CurrentRow(column).ToString)]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <If sap2010:Annotation.AnnotationText="Find minimum confidence" Condition="[currConfidence &lt; minConfidence]" sap:VirtualizedContainerService.HintSize="483.2,425.6" sap2010:WorkflowViewState.IdRef="If_10">
+                                      <If sap2010:Annotation.AnnotationText="Find minimum confidence" Condition="[currConfidence &lt; minConfidence]" sap:VirtualizedContainerService.HintSize="484,422" sap2010:WorkflowViewState.IdRef="If_10">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <If.Then>
-                                          <Sequence sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                          <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_39">
                                               <Assign.To>
                                                 <OutArgument x:TypeArguments="x:Boolean">[out_fieldConfTooSmall]</OutArgument>
                                               </Assign.To>
@@ -577,7 +577,7 @@
                                                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                               </Assign.Value>
                                             </Assign>
-                                            <ui:Break sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Break_4" />
+                                            <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_4" />
                                           </Sequence>
                                         </If.Then>
                                       </If>
@@ -589,11 +589,11 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">229,360</av:Point>
-                                        <av:Size x:Key="ShapeSize">262.4,60</av:Size>
+                                        <av:Size x:Key="ShapeSize">262,60</av:Size>
                                         <av:PointCollection x:Key="ConnectorLocation">360.2,420 360.2,470</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Boolean">[out_confFieldNullExists]</OutArgument>
                                       </Assign.To>
@@ -606,10 +606,10 @@
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">260.2,470</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,22.4</av:Size>
+                                            <av:Size x:Key="ShapeSize">200,22</av:Size>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_2">
+                                        <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_2">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -623,12 +623,12 @@
                               </FlowDecision>
                             </FlowDecision.True>
                             <FlowDecision.False>
-                              <FlowDecision x:Name="__ReferenceID9" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Non conf field is null" sap:VirtualizedContainerService.HintSize="115.2,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+                              <FlowDecision x:Name="__ReferenceID9" Condition="[Not (CurrentRow(column).ToString.Equals(&quot;&quot;))]" DisplayName="Non conf field is null" sap:VirtualizedContainerService.HintSize="116,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <av:Point x:Key="ShapeLocation">632,206.5</av:Point>
-                                    <av:Size x:Key="ShapeSize">115.2,87.2</av:Size>
+                                    <av:Size x:Key="ShapeSize">116,87</av:Size>
                                     <av:PointCollection x:Key="FalseConnector">748,250 770,250 770,350</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -637,11 +637,11 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">639,350</av:Point>
-                                        <av:Size x:Key="ShapeSize">262.4,60</av:Size>
+                                        <av:Size x:Key="ShapeSize">262,60</av:Size>
                                         <av:PointCollection x:Key="ConnectorLocation">770.2,410 770.2,460</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Boolean">[out_nonConfFieldNullExists]</OutArgument>
                                       </Assign.To>
@@ -654,10 +654,10 @@
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">670.2,460</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,22.4</av:Size>
+                                            <av:Size x:Key="ShapeSize">200,22</av:Size>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_3">
+                                        <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_3">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -700,7 +700,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="376,280" sap2010:WorkflowViewState.IdRef="Sequence_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
