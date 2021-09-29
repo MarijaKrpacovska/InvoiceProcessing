@@ -123,11 +123,21 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Read the config file first; all Log &amp; Exception messages are defined there" DisplayName="ReadConfigFile" sap:VirtualizedContainerService.HintSize="721.6,157.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_65" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\00_ReadConfigFile.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings", "Constants"}]</InArgument>
-        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">[config]</OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="out_MaxAttempts">[maxAttempts]</OutArgument>
-        <OutArgument x:TypeArguments="x:TimeSpan" x:Key="out_RetryInterval">[retryInterval]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">
+          <Literal x:TypeArguments="x:String">Data\Config.xlsx</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">
+          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Settings&quot;, &quot;Constants&quot;}" />
+        </InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="out_Config">
+          <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="config" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="out_MaxAttempts">
+          <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="maxAttempts" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:TimeSpan" x:Key="out_RetryInterval">
+          <mva:VisualBasicReference x:TypeArguments="x:TimeSpan" ExpressionText="retryInterval" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -192,7 +202,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">290,247.3 290,274.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each Folder " sap:VirtualizedContainerService.HintSize="932.8,1361.6" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[Directory.GetDirectories(config(&quot;SourceFolder&quot;))]">
+                <ParallelForEach x:TypeArguments="x:String" DisplayName="Parallel For Each Folder " sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ParallelForEach`1_3" Values="[Directory.GetDirectories(config(&quot;SourceFolder&quot;))]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
