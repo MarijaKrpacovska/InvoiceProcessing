@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>881,1826</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>754,1826</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="92">
@@ -367,7 +367,7 @@
                                                     <av:PointCollection x:Key="ConnectorLocation">240,685.5 240,746.5</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <TryCatch sap2010:Annotation.AnnotationText="Validate extracted results in Action Center" DisplayName="ValidationTryCatch" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                                <TryCatch sap2010:Annotation.AnnotationText="Validate extracted results in Action Center" DisplayName="ValidationTryCatch" sap:VirtualizedContainerService.HintSize="558,2576" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -403,7 +403,7 @@
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
                                                       </p3:CreateDocumentValidationAction>
-                                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="478,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_121" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\AssignTaskToUser.xaml">
+                                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Assign Task to User" sap:VirtualizedContainerService.HintSize="478,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_121" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\AssignTaskToUser.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
                                                           <InArgument x:TypeArguments="x:String" x:Key="in_taskId">[validationAction.Id.ToString]</InArgument>
                                                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
@@ -559,12 +559,8 @@
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_124" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\ReusableWorkflows\ValidateItemsSum.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">
-                                                      <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
-                                                    </InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">
-                                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
-                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">[exportData]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">[in_TargetFile]</InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -584,18 +580,10 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Make XML file" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_123" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\writeXML.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                        <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">
-                                                          <mva:VisualBasicValue x:TypeArguments="sd:DataSet" ExpressionText="exportData" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">
-                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TargetFile" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="in_outputPath">
-                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="outputPath" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="config" />
-                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="sd:DataSet" x:Key="in_exportDataSet">[exportData]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="in_targetFile">[in_TargetFile]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="in_outputPath">[outputPath]</InArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
